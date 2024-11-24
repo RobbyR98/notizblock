@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notepad</title>
+    <link rel="shortcut icon" href="./styles/assets/icons/clipboard-23638_640.png" type="image/x-icon" />
+
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
+
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
+  </head>
+  <body onload="renderNotes()">
+    <div class="hero-image">
+      <section class="container">
+        <h1>Notepad</h1>
+        <div class="responsive-design">
+          <input type="text" id="title-input" placeholder="Enter title ..." />
+          <input type="text" id="note-input" placeholder="Enter note ..." />
+          <button type="button" onclick="alertEmptyInput(),addNote()">Absenden</button>
+        </div>
+
+        <p id="alert-empty-input" class="displayNone alert-p-style"></p>
+
+        <h2>Notes</h2>
+        <div id="content"></div>
+
+        <h2>Archiv</h2>
+        <div id="archiv-content"></div>
+
+        <h2>Trash</h2>
+        <div id="trash-content"></div>
+        <a href="./index.html"><img src="./styles/assets/icons/clipboard-23638_640.png" alt="clipboard-icon" /></a>
+      </section>
+    </div>
+  </body>
+</html>
