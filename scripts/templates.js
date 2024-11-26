@@ -1,11 +1,11 @@
 function getNoteTemplate(indexNote) {
   return `<div class="notes-container">
-            <p>${notesTitles[indexNote]}:<br> ${notes[indexNote]}</p>
+            <p>${allNotes.notesTitles[indexNote]}:<br> ${allNotes.notes[indexNote]}</p>
               <div class="button-position">              
-                <button class="button-style-notes" onclick="noteToArchiv(${indexNote})">
+                <button class="button-style-notes" onclick="moveNote(${indexNote}, 'notes', 'archivNotes')">
                 <img src="./styles/assets/icons/folder-7207892_640.png" alt="" />
                 </button>
-                <button class="button-style-notes" onclick="noteToTrash(${indexNote})">
+                <button class="button-style-notes" onclick="moveNote(${indexNote}, 'notes', 'trashNotes')">
                 <img src="./styles/assets/icons/rubbish-6664779_640.png" alt="" />
                 </button>
               </div>
@@ -14,12 +14,12 @@ function getNoteTemplate(indexNote) {
 
 function getArchivNoteTemplate(indexArchivNote) {
   return `<div class="notes-container">
-            <p>${archivNotesTitles[indexArchivNote]}:<br> ${archivNotes[indexArchivNote]}</p>
+            <p>${allNotes.archivNotesTitles[indexArchivNote]}:<br> ${allNotes.archivNotes[indexArchivNote]}</p>
               <div class="button-position">              
-                <button class="button-style-notes" onclick="noteFromArchivToNotes(${indexArchivNote})">
+                <button class="button-style-notes" onclick="moveNote(${indexArchivNote}, 'archivNotes', 'notes')">
                 <img src="./styles/assets/icons/icon-1970472_640.png" alt="" />
                 </button>
-                <button class="button-style-notes" onclick="noteFromArchivToTrash(${indexArchivNote})">
+                <button class="button-style-notes" onclick="moveNote(${indexArchivNote}, 'archivNotes', 'trashNotes')">
                 <img src="./styles/assets/icons/rubbish-6664779_640.png" alt="" />
                 </button>
               </div>
@@ -28,9 +28,9 @@ function getArchivNoteTemplate(indexArchivNote) {
 
 function getTrashNoteTemplate(indexTrashNote) {
   return `<div class="notes-container">
-            <p>${trashNotesTitles[indexTrashNote]}:<br> ${trashNotes[indexTrashNote]}</p>
+            <p>${allNotes.trashNotesTitles[indexTrashNote]}:<br> ${allNotes.trashNotes[indexTrashNote]}</p>
               <div class="button-position"> 
-                <button class="button-style-notes" onclick="noteFromTrashToNotes(${indexTrashNote})">
+                <button class="button-style-notes" onclick="moveNote(${indexTrashNote}, 'trashNotes', 'notes')">
                 <img src="./styles/assets/icons/icon-1970472_640.png" alt="" />
                 </button>
                 <button class="button-style-notes" onclick="deleteNote(${indexTrashNote})">
