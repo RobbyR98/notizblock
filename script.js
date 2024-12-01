@@ -1,19 +1,16 @@
-// let notesTitles = [];
-// let notes = [];
-
-// let archivNotesTitles = [];
-// let archivNotes = [];
-
-// let trashNotesTitles = [];
-// let trashNotes = [];
-
 let allNotes = {
-  'notesTitles': ['Test Title 1', 'Test Title 2'],
-  'notes': ['Test Notiz 1', 'Test Notiz 2'],
+  'notesTitles': ['Title 1', 'Title 2'],
+  'notes': ['Notiz 1', 'Notiz 2'],
   'archivNotesTitles': [],
   'archivNotes': [],
   'trashNotesTitles': [],
   'trashNotes': []
+}
+
+function renderAllNotes() {
+  renderNotes();
+  renderArchivNotes();
+  renderTrashNotes();
 }
 
 function moveNote(indexNote, startKey, destinationKey) {
@@ -21,6 +18,8 @@ function moveNote(indexNote, startKey, destinationKey) {
   allNotes[destinationKey].push(note[0]);
   let notesTitle = allNotes[startKey + "Titles"].splice(indexNote, 1);
   allNotes[destinationKey + "Titles"].push(notesTitle[0]);
+
+  renderAllNotes();
 }
 
 function alertEmptyInput() {
@@ -34,12 +33,6 @@ function alertEmptyInput() {
   } else {
     alertElement.classList.add('displayNone');
   }
-}
-
-function renderAllNotes() {
-  renderNotes();
-  renderArchivNotes();
-  renderTrashNotes();
 }
 
 function renderNotes(){
@@ -77,11 +70,11 @@ function addNote() {
     return;
   }
 
-  notes.push(noteInput);
-  notesTitles.push(titleInput);
+  allNotes.notes.push(noteInput);
+  allNotes.notesTitles.push(titleInput);
 
   renderAllNotes();
-  
+
   noteInputRef.value = ""; 
   titleInputRef.value = ""; 
 }
@@ -89,7 +82,6 @@ function addNote() {
 function deleteNote(indexTrashNote) {
   allNotes.trashNotes.splice(indexTrashNote, 1);
   allNotes.trashNotesTitles.splice(indexTrashNote, 1);
-  
-  renderAllNotes();
-}
 
+  renderAllNotes()
+}
