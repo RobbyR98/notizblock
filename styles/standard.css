@@ -25,6 +25,14 @@ h2 {
   font-size: 24px;
 }
 
+input {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
 .displayNone {
   display: none;
 }
