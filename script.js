@@ -1,6 +1,6 @@
 let allNotes = {
-  'notesTitles': ['Title 1', 'Title 2'],
-  'notes': ['Notiz 1', 'Notiz 2'],
+  'notesTitles': [],
+  'notes': [],
   'archivNotesTitles': [],
   'archivNotes': [],
   'trashNotesTitles': [],
@@ -8,6 +8,7 @@ let allNotes = {
 }
 
 function renderAllNotes() {
+  getFromLocalStorage();
   renderNotes();
   renderArchivNotes();
   renderTrashNotes();
@@ -18,7 +19,6 @@ function moveNote(indexNote, startKey, destinationKey) {
   allNotes[destinationKey].push(note[0]);
   let notesTitle = allNotes[startKey + "Titles"].splice(indexNote, 1);
   allNotes[destinationKey + "Titles"].push(notesTitle[0]);
-
   renderAllNotes();
 }
 
@@ -26,7 +26,6 @@ function alertEmptyInput() {
   const titleInput = document.getElementById('title-input').value.trim();
   const noteInput = document.getElementById('note-input').value.trim();
   const alertElement = document.getElementById('alert-empty-input');
-
   if (titleInput === "" || noteInput === "") {
     alertElement.classList.remove('displayNone'); 
     alertElement.textContent = "Please enter a title and note!"; 
@@ -62,19 +61,15 @@ function renderTrashNotes(){
 function addNote() {  
   let noteInputRef = document.getElementById('note-input'); 
   let noteInput = noteInputRef.value;
-
   let titleInputRef = document.getElementById('title-input');
   let titleInput = titleInputRef.value;
-
   if (noteInput == "" || titleInput == "") {
     return;
   }
-
   allNotes.notes.push(noteInput);
   allNotes.notesTitles.push(titleInput);
-
   renderAllNotes();
-
+  saveToLocalStorage();
   noteInputRef.value = ""; 
   titleInputRef.value = ""; 
 }
@@ -82,6 +77,17 @@ function addNote() {
 function deleteNote(indexTrashNote) {
   allNotes.trashNotes.splice(indexTrashNote, 1);
   allNotes.trashNotesTitles.splice(indexTrashNote, 1);
-
   renderAllNotes()
+  saveToLocalStorage();
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem('allNotes', JSON.stringify(allNotes));
+}
+
+function getFromLocalStorage() {
+  let storedNotes = JSON.parse(localStorage.getItem('allNotes'));
+  if (storedNotes !== null) {
+    allNotes = storedNotes;
+  }
 }
