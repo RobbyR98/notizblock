@@ -5,6 +5,17 @@ let allNotes = {
   'archivNotes': [],
   'trashNotesTitles': [],
   'trashNotes': []
+};
+
+function saveToLocalStorage() {
+  localStorage.setItem('allNotes', JSON.stringify(allNotes));
+}
+
+function getFromLocalStorage() {
+  const storedNotes = localStorage.getItem('allNotes');
+  if (storedNotes) {
+    allNotes = JSON.parse(storedNotes);
+  }
 }
 
 function renderAllNotes() {
@@ -19,6 +30,7 @@ function moveNote(indexNote, startKey, destinationKey) {
   allNotes[destinationKey].push(note[0]);
   let notesTitle = allNotes[startKey + "Titles"].splice(indexNote, 1);
   allNotes[destinationKey + "Titles"].push(notesTitle[0]);
+  saveToLocalStorage();
   renderAllNotes();
 }
 
@@ -35,7 +47,7 @@ function alertEmptyInput() {
 }
 
 function renderNotes(){
-  let contentRef = document.getElementById('content')
+  let contentRef = document.getElementById('content');
   contentRef.innerHTML = "";
   for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
     contentRef.innerHTML += getNoteTemplate(indexNote);
@@ -43,7 +55,7 @@ function renderNotes(){
 }
 
 function renderArchivNotes(){
-  let archivContentRef = document.getElementById('archiv-content')
+  let archivContentRef = document.getElementById('archiv-content');
   archivContentRef.innerHTML = "";
   for (let indexArchivNote = 0; indexArchivNote < allNotes.archivNotes.length; indexArchivNote++) {
     archivContentRef.innerHTML += getArchivNoteTemplate(indexArchivNote);
@@ -51,13 +63,13 @@ function renderArchivNotes(){
 }
 
 function renderTrashNotes(){
-  let trashContentRef = document.getElementById('trash-content')
+  let trashContentRef = document.getElementById('trash-content');
   trashContentRef.innerHTML = "";
   for (let indexTrashNote = 0; indexTrashNote < allNotes.trashNotes.length; indexTrashNote++) {
     trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
   }
 }
-  
+
 function addNote() {  
   let noteInputRef = document.getElementById('note-input'); 
   let noteInput = noteInputRef.value;
@@ -68,8 +80,9 @@ function addNote() {
   }
   allNotes.notes.push(noteInput);
   allNotes.notesTitles.push(titleInput);
-  renderAllNotes();
   saveToLocalStorage();
+  renderAllNotes();
+
   noteInputRef.value = ""; 
   titleInputRef.value = ""; 
 }
@@ -77,17 +90,6 @@ function addNote() {
 function deleteNote(indexTrashNote) {
   allNotes.trashNotes.splice(indexTrashNote, 1);
   allNotes.trashNotesTitles.splice(indexTrashNote, 1);
-  renderAllNotes()
   saveToLocalStorage();
-}
-
-function saveToLocalStorage() {
-  localStorage.setItem('allNotes', JSON.stringify(allNotes));
-}
-
-function getFromLocalStorage() {
-  let storedNotes = JSON.parse(localStorage.getItem('allNotes'));
-  if (storedNotes !== null) {
-    allNotes = storedNotes;
-  }
+  renderAllNotes();
 }
