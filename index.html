@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notepad</title>
-    <link rel="shortcut icon" href="./styles/assets/icons/clipboard-23638_640.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/icons/notepad.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/layout.css" />
     <link rel="stylesheet" href="./styles/notes.css" />
     <link rel="stylesheet" href="./styles/area-container.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
   </head>
   <body onload="renderAllNotes()">
     <header>
@@ -17,8 +18,10 @@
       <div class="responsive-design">
         <input type="text" id="title-input" placeholder="Enter title ..." />
         <input type="text" id="note-input" placeholder="Enter note ..." />
-        <button type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
-        <p id="alert-empty-input" class="displayNone alert-p-style"></p>
+        <div class="butto-alert-position">
+          <button type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
+          <p id="alert-empty-input" class="displayNone alert-p-style"></p>
+        </div>
       </div>
     </header>
 
@@ -35,7 +38,10 @@
       </main>
     </div>
 
+    <script src="./scripts/script.js"></script>
     <script src="./scripts/templates.js"></script>
-    <script src="./script.js"></script>
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/local-storage.js"></script>
+    <script src="./scripts/assets.js"></script>
   </body>
 </html>

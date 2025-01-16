@@ -1,23 +1,3 @@
-let allNotes = {
-  'notesTitles': [],
-  'notes': [],
-  'archivNotesTitles': [],
-  'archivNotes': [],
-  'trashNotesTitles': [],
-  'trashNotes': []
-};
-
-function saveToLocalStorage() {
-  localStorage.setItem('allNotes', JSON.stringify(allNotes));
-}
-
-function getFromLocalStorage() {
-  const storedNotes = localStorage.getItem('allNotes');
-  if (storedNotes) {
-    allNotes = JSON.parse(storedNotes);
-  }
-}
-
 function renderAllNotes() {
   getFromLocalStorage();
   renderNotes();
@@ -43,18 +23,6 @@ function moveNote(indexNote, startKey, destinationKey) {
     } else if (startKey === "notes") {
       renderNotes();
     }
-  }
-}
-
-function alertEmptyInput() {
-  const titleInput = document.getElementById('title-input').value.trim();
-  const noteInput = document.getElementById('note-input').value.trim();
-  const alertElement = document.getElementById('alert-empty-input');
-  if (titleInput === "" || noteInput === "") {
-    alertElement.classList.remove('displayNone'); 
-    alertElement.textContent = "Please enter a title and note!"; 
-  } else {
-    alertElement.classList.add('displayNone');
   }
 }
 
@@ -109,12 +77,4 @@ function deleteNote(indexTrashNote) {
   allNotes.trashNotesTitles.splice(indexTrashNote, 1);
   saveToLocalStorage();
   renderTrashNotes();
-}
-
-function setActive(element) {
-  let headings = document.querySelectorAll('aside h2');
-  for (let i = 0; i < headings.length; i++) {
-    headings[i].classList.remove('active');
-  }
-  element.classList.add('active');
 }

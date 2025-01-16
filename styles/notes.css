@@ -51,3 +51,16 @@
   width: 24px;
   height: 24px;
 }
+
+.butto-alert-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.alert-p-style {
+  color: red;
+  font-weight: bold;
+  margin: 0;
+}
