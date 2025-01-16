@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+}
+
+aside {
+  width: 20%;
+  background-color: #343a40;
+  color: white;
+  padding: 16px;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+aside h2 {
+  margin: 0 0 20px 0;
+  padding: 16px;
+  background-color: #495057;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+aside h2:hover,
+aside h2.active {
+  background-color: #6c757d;
+  transform: scale(1.05);
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+}

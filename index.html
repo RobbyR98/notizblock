@@ -6,34 +6,35 @@
     <title>Notepad</title>
     <link rel="shortcut icon" href="./styles/assets/icons/clipboard-23638_640.png" type="image/x-icon" />
 
-    <link rel="stylesheet" href="./styles/assets.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./styles/responsive.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/notes.css" />
+    <link rel="stylesheet" href="./styles/area-container.css" />
   </head>
   <body onload="renderAllNotes()">
-    <div class="hero-image">
-      <section class="container">
-        <h1>Notepad</h1>
-        <div class="responsive-design">
-          <input type="text" id="title-input" placeholder="Enter title ..." />
-          <input type="text" id="note-input" placeholder="Enter note ..." />
-          <button type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
-        </div>
-
+    <header>
+      <h1>Notepad</h1>
+      <div class="responsive-design">
+        <input type="text" id="title-input" placeholder="Enter title ..." />
+        <input type="text" id="note-input" placeholder="Enter note ..." />
+        <button type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
         <p id="alert-empty-input" class="displayNone alert-p-style"></p>
+      </div>
+    </header>
 
-        <h2>Notes</h2>
+    <div class="wrapper">
+      <aside>
+        <h2 onclick="setActive(this); renderNotes()">Notes</h2>
+        <h2 onclick="setActive(this); renderArchivNotes()">Archiv</h2>
+        <h2 onclick="setActive(this); renderTrashNotes()">Trash</h2>
+      </aside>
+      <main>
         <div id="content"></div>
-
-        <h2>Archiv</h2>
         <div id="archiv-content"></div>
-
-        <h2>Trash</h2>
         <div id="trash-content"></div>
-        <a href="./index.html"><img src="./styles/assets/icons/clipboard-23638_640.png" alt="clipboard-icon" /></a>
-      </section>
+      </main>
     </div>
+
     <script src="./scripts/templates.js"></script>
     <script src="./script.js"></script>
   </body>

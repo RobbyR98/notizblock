@@ -1,0 +1,13 @@
+#content,
+#archiv-content,
+#trash-content {
+  display: none;
+}
+
+#content.show,
+#archiv-content.show,
+#trash-content.show {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

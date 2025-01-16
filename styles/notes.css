@@ -1,0 +1,53 @@
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  width: 240px;
+  height: 160px;
+  transition: transform 0.2s ease;
+}
+
+.notes-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.notes-container p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.notes-container p strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.notes-container .button-position {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.button-style-notes {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+
+.button-style-notes:hover {
+  transform: scale(1.2);
+}
+
+.button-style-notes img {
+  width: 24px;
+  height: 24px;
+}
