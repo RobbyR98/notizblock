@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: templates.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: templates.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Generates the HTML template for a note.
+ * 
+ * @param {number} indexNote - The index of the note to render.
+ * @returns {string} - The HTML string for the note.
+ */
+function getNoteTemplate(indexNote) {
+  return `&lt;div class="notes-container">
+            &lt;p>&lt;strong>${allNotes.notesTitles[indexNote]}:&lt;/strong>&lt;br> ${allNotes.notes[indexNote]}&lt;/p>
+              &lt;div class="button-position">              
+                &lt;button class="button-style-notes" onclick="moveNote(${indexNote}, 'notes', 'archivNotes')">
+                &lt;img src="./assets/icons/folder-7207892_640.png" alt="" />
+                &lt;/button>
+                &lt;button class="button-style-notes" onclick="moveNote(${indexNote}, 'notes', 'trashNotes')">
+                &lt;img src="./assets/icons/rubbish-6664779_640.png" alt="" />
+                &lt;/button>
+              &lt;/div>
+          &lt;/div>`;
+}
+
+/**
+ * Generates the HTML template for an archived note.
+ * 
+ * @param {number} indexArchivNote - The index of the archived note to render.
+ * @returns {string} - The HTML string for the archived note.
+ */
+function getArchivNoteTemplate(indexArchivNote) {
+  return `&lt;div class="notes-container">
+            &lt;p>&lt;strong>${allNotes.archivNotesTitles[indexArchivNote]}:&lt;/strong>&lt;br> ${allNotes.archivNotes[indexArchivNote]}&lt;/p>
+              &lt;div class="button-position">              
+                &lt;button class="button-style-notes" onclick="moveNote(${indexArchivNote}, 'archivNotes', 'notes')">
+                &lt;img src="./assets/icons/icon-1970472_640.png" alt="" />
+                &lt;/button>
+                &lt;button class="button-style-notes" onclick="moveNote(${indexArchivNote}, 'archivNotes', 'trashNotes')">
+                &lt;img src="./assets/icons/rubbish-6664779_640.png" alt="" />
+                &lt;/button>
+              &lt;/div>
+          &lt;/div>`;
+}
+
+/**
+ * Generates the HTML template for a trash note.
+ * 
+ * @param {number} indexTrashNote - The index of the trash note to render.
+ * @returns {string} - The HTML string for the trash note.
+ */
+function getTrashNoteTemplate(indexTrashNote) {
+  return `&lt;div class="notes-container">
+            &lt;p>&lt;del>&lt;strong>${allNotes.trashNotesTitles[indexTrashNote]}:&lt;/strong>&lt;br> ${allNotes.trashNotes[indexTrashNote]}&lt;/del>&lt;/p>
+              &lt;div class="button-position"> 
+                &lt;button class="button-style-notes" onclick="moveNote(${indexTrashNote}, 'trashNotes', 'notes')">
+                &lt;img src="./assets/icons/icon-1970472_640.png" alt="" />
+                &lt;/button>
+                &lt;button class="button-style-notes" onclick="deleteNote(${indexTrashNote})">
+                &lt;img src="./assets/icons/rubbish-6664779_640.png" alt="" />
+                &lt;/button>
+              &lt;/div>
+          &lt;/div>`;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addNote">addNote</a></li><li><a href="global.html#alertEmptyInput">alertEmptyInput</a></li><li><a href="global.html#alertEmptyTextDisplayNone">alertEmptyTextDisplayNone</a></li><li><a href="global.html#deleteNote">deleteNote</a></li><li><a href="global.html#getArchivNoteTemplate">getArchivNoteTemplate</a></li><li><a href="global.html#getFromLocalStorage">getFromLocalStorage</a></li><li><a href="global.html#getNoteTemplate">getNoteTemplate</a></li><li><a href="global.html#getTrashNoteTemplate">getTrashNoteTemplate</a></li><li><a href="global.html#hideAllSections">hideAllSections</a></li><li><a href="global.html#input">input</a></li><li><a href="global.html#moveNote">moveNote</a></li><li><a href="global.html#renderAllNotes">renderAllNotes</a></li><li><a href="global.html#renderArchivNotes">renderArchivNotes</a></li><li><a href="global.html#renderNotes">renderNotes</a></li><li><a href="global.html#renderTrashNotes">renderTrashNotes</a></li><li><a href="global.html#saveToLocalStorage">saveToLocalStorage</a></li><li><a href="global.html#setActive">setActive</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Fri Jan 17 2025 19:20:03 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
