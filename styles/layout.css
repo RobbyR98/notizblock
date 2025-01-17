@@ -3,7 +3,7 @@
 }
 
 aside {
-  width: 20%;
+  width: 10%;
   background-color: #343a40;
   color: white;
   padding: 16px;
@@ -31,5 +31,5 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 80%;
+  width: 90%;
 }

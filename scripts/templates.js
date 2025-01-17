@@ -1,3 +1,9 @@
+/**
+ * Generates the HTML template for a note.
+ * 
+ * @param {number} indexNote - The index of the note to render.
+ * @returns {string} - The HTML string for the note.
+ */
 function getNoteTemplate(indexNote) {
   return `<div class="notes-container">
             <p><strong>${allNotes.notesTitles[indexNote]}:</strong><br> ${allNotes.notes[indexNote]}</p>
@@ -9,9 +15,15 @@ function getNoteTemplate(indexNote) {
                 <img src="./assets/icons/rubbish-6664779_640.png" alt="" />
                 </button>
               </div>
-          </div>`
+          </div>`;
 }
 
+/**
+ * Generates the HTML template for an archived note.
+ * 
+ * @param {number} indexArchivNote - The index of the archived note to render.
+ * @returns {string} - The HTML string for the archived note.
+ */
 function getArchivNoteTemplate(indexArchivNote) {
   return `<div class="notes-container">
             <p><strong>${allNotes.archivNotesTitles[indexArchivNote]}:</strong><br> ${allNotes.archivNotes[indexArchivNote]}</p>
@@ -23,9 +35,15 @@ function getArchivNoteTemplate(indexArchivNote) {
                 <img src="./assets/icons/rubbish-6664779_640.png" alt="" />
                 </button>
               </div>
-          </div>`
+          </div>`;
 }
 
+/**
+ * Generates the HTML template for a trash note.
+ * 
+ * @param {number} indexTrashNote - The index of the trash note to render.
+ * @returns {string} - The HTML string for the trash note.
+ */
 function getTrashNoteTemplate(indexTrashNote) {
   return `<div class="notes-container">
             <p><del><strong>${allNotes.trashNotesTitles[indexTrashNote]}:</strong><br> ${allNotes.trashNotes[indexTrashNote]}</del></p>
@@ -37,5 +55,5 @@ function getTrashNoteTemplate(indexTrashNote) {
                 <img src="./assets/icons/rubbish-6664779_640.png" alt="" />
                 </button>
               </div>
-          </div>`
+          </div>`;
 }

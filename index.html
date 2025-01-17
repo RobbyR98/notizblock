@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/notes.css" />
     <link rel="stylesheet" href="./styles/area-container.css" />
     <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
   </head>
   <body onload="renderAllNotes()">
     <header>
@@ -19,7 +20,7 @@
         <input type="text" id="title-input" placeholder="Enter title ..." />
         <input type="text" id="note-input" placeholder="Enter note ..." />
         <div class="butto-alert-position">
-          <button type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
+          <button id="search-btn" type="button" onclick="alertEmptyInput(),addNote()">Add Note</button>
           <p id="alert-empty-input" class="displayNone alert-p-style"></p>
         </div>
       </div>
